@@ -14,9 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "PK-Studios | Kreativstudio für Design & Development",
+  title: "PK-Studios | Portfolio für Design & Development",
   description:
-    "PK-Studios verbindet Brand Design, digitale Produkte und visuelle Kommunikation zu markanten Erlebnissen.",
+    "Portfolio von PK-Studios – ausgewählte Arbeiten in Branding, Web, Product und Editorial Design.",
   openGraph: {
     title: "PK-Studios",
     description:

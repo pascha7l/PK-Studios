@@ -14,45 +14,45 @@ export function HeroSection() {
         <div className="space-y-8">
           <Badge variant="secondary" className="gap-1.5 px-3 py-1">
             <Sparkles className="size-3.5" />
-            Kreativstudio · Design & Development
+            Portfolio · Design & Development
           </Badge>
 
           <div className="space-y-5">
             <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-balance sm:text-5xl lg:text-6xl">
-              Ideen, die{" "}
+              Design, das{" "}
               <span className="bg-gradient-to-r from-orange-300 via-amber-200 to-orange-400 bg-clip-text text-transparent">
-                Marken sichtbar
-              </span>{" "}
-              machen.
+                Projekte erzählt
+              </span>
+              .
             </h1>
             <p className="max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              PK-Studios verbindet Strategie, Design und Technologie zu
-              digitalen Erlebnissen, die wirken – von der ersten Skizze bis zum
-              Launch.
+              PK-Studios ist mein kreatives Portfolio für Branding, digitale
+              Produkte und visuelle Kommunikation – kuratiert, durchdacht und
+              ready to ship.
             </p>
           </div>
 
           <div className="flex flex-col gap-3 sm:flex-row">
-            <Button render={<a href="#kontakt" />} size="lg" className="h-11 px-5">
-              Projekt anfragen
+            <Button render={<a href="#portfolio" />} size="lg" className="h-11 px-5">
+              Portfolio ansehen
               <ArrowRight />
             </Button>
             <Button
-              render={<a href="#projekte" />}
+              render={<a href="#kontakt" />}
               variant="outline"
               size="lg"
               className="h-11 px-5"
             >
-              Arbeiten ansehen
+              Kontakt
             </Button>
           </div>
         </div>
 
         <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
           {[
-            { label: "Fokus", value: "Brand & Digital" },
-            { label: "Ansatz", value: "Strategie + Craft" },
-            { label: "Tempo", value: "Klar & effizient" },
+            { label: "Schwerpunkt", value: "Brand & Web" },
+            { label: "Projekte", value: "40+ Cases" },
+            { label: "Verfügbar", value: "Für neue Aufträge" },
           ].map((item) => (
             <div
               key={item.label}

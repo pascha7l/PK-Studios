@@ -40,7 +40,7 @@ export function SiteHeader() {
 
         <div className="hidden md:block">
           <Button render={<a href="#kontakt" />} size="lg">
-            Projekt starten
+            Kontakt
           </Button>
         </div>
 
@@ -78,7 +78,7 @@ export function SiteHeader() {
             size="lg"
             onClick={() => setMobileOpen(false)}
           >
-            Projekt starten
+            Kontakt
           </Button>
         </nav>
       </div>

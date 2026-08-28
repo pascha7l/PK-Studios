@@ -1,6 +1,6 @@
 # PK-Studios
 
-Website für **PK-Studios** – ein Kreativstudio für Brand Design, digitale Produkte und visuelle Kommunikation.
+Website für **PK-Studios** – ein Portfolio für Brand Design, digitale Produkte und visuelle Kommunikation.
 
 ## Tech Stack
 
