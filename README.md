@@ -28,6 +28,16 @@ Die App läuft standardmäßig unter [http://localhost:4317](http://localhost:43
 
 Repository: [pascha7l/PK-Studios](https://github.com/pascha7l/PK-Studios)
 
+## Deploy (Vercel)
+
+```bash
+npm i -g vercel
+vercel login
+vercel --prod
+```
+
+Oder das GitHub-Repo unter [vercel.com/new](https://vercel.com/new) importieren – Framework: Next.js.
+
 ## Anpassungen
 
 - Inhalte: `src/lib/site-data.ts`
