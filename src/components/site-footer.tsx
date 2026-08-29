@@ -3,7 +3,7 @@ import { Globe, Mail, Share2 } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 
 const socialLinks = [
-  { href: "https://github.com/PK-Studios", label: "GitHub", icon: Globe },
+  { href: "https://github.com/pascha7l/PK-Studios", label: "GitHub", icon: Globe },
   { href: "https://instagram.com", label: "Instagram", icon: Share2 },
   { href: "mailto:hello@pk-studios.de", label: "E-Mail", icon: Mail },
 ] as const;

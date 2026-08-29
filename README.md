@@ -26,16 +26,7 @@ Die App läuft standardmäßig unter [http://localhost:4317](http://localhost:43
 
 ## GitHub
 
-Dieses Projekt ist für die Organisation **PK-Studios** auf GitHub vorgesehen.
-
-Nach dem Erstellen des Repositories auf GitHub kannst du den Remote hinzufügen:
-
-```bash
-git remote add github git@github.com:PK-Studios/pk-studios.git
-git push -u github main
-```
-
-Passe den Repository-Namen an, falls du einen anderen Namen verwendest.
+Repository: [pascha7l/PK-Studios](https://github.com/pascha7l/PK-Studios)
 
 ## Anpassungen
 
