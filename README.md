@@ -30,13 +30,17 @@ Repository: [pascha7l/PK-Studios](https://github.com/pascha7l/PK-Studios)
 
 ## Deploy (Vercel)
 
+Live: [https://pk-studios.vercel.app](https://pk-studios.vercel.app)
+
+Pushes auf `main` deployen automatisch nach Vercel (GitHub Actions).
+
+Manuell:
+
 ```bash
 npm i -g vercel
 vercel login
 vercel --prod
 ```
-
-Oder das GitHub-Repo unter [vercel.com/new](https://vercel.com/new) importieren – Framework: Next.js.
 
 ## Anpassungen
 
