@@ -1,34 +1,37 @@
-import { Badge } from "@/components/ui/badge";
+import { Reveal } from "@/components/reveal";
 import { expertise } from "@/lib/site-data";
 
 export function ExpertiseSection() {
   return (
-    <section id="expertise" className="border-b border-border/60 py-20 sm:py-24">
+    <section id="expertise" className="border-b border-border/60 py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl space-y-4">
-          <p className="text-sm uppercase tracking-[0.2em] text-orange-300/80">
+        <Reveal className="max-w-2xl space-y-4">
+          <p className="text-sm font-medium uppercase tracking-[0.2em] text-primary">
             Expertise
           </p>
-          <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-            Womit ich arbeite
+          <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-5xl">
+            Disziplinen, die ineinandergreifen
           </h2>
           <p className="text-muted-foreground">
-            Von der ersten Idee bis zur Umsetzung – diese Disziplinen fließen
-            in meine Portfolio-Projekte ein.
+            Strategie, Craft und Code – ohne unnötige Tools oder
+            Drittanbieter-SDKs, die Daten abgreifen.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="mt-10 flex flex-wrap gap-3">
-          {expertise.map((skill) => (
-            <Badge
+        <ul className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {expertise.map((skill, index) => (
+            <Reveal
               key={skill}
-              variant="secondary"
-              className="px-4 py-2 text-sm"
+              as="li"
+              delay={(Math.min(index % 3, 2) + 1) as 1 | 2 | 3}
+              className="group border-b border-border/70 py-4 transition-colors hover:border-primary/50"
             >
-              {skill}
-            </Badge>
+              <span className="font-display text-lg font-medium tracking-tight transition-colors group-hover:text-primary">
+                {skill}
+              </span>
+            </Reveal>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );

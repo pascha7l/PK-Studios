@@ -1,39 +1,41 @@
+import { Reveal } from "@/components/reveal";
 import { aboutStats } from "@/lib/site-data";
 
 export function AboutSection() {
   return (
-    <section id="ueber" className="border-b border-border/60 py-20 sm:py-24">
-      <div className="mx-auto grid max-w-6xl gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8">
-        <div className="space-y-4">
-          <p className="text-sm uppercase tracking-[0.2em] text-orange-300/80">
+    <section id="ueber" className="border-b border-border/60 py-20 sm:py-28">
+      <div className="mx-auto grid max-w-6xl gap-14 px-4 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:px-8">
+        <Reveal className="space-y-5">
+          <p className="text-sm font-medium uppercase tracking-[0.2em] text-primary">
             Über mich
           </p>
-          <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-            Kreativ, präzise, projektorientiert.
+          <h2 className="font-display text-3xl font-semibold tracking-tight sm:text-5xl">
+            Atelier für klare Marken und digitale Produkte.
           </h2>
           <p className="leading-relaxed text-muted-foreground">
-            Ich bin PK-Studios – ein unabhängiges Kreativstudio mit Fokus auf
-            durchdachtes Design und saubere Umsetzung. Mein Portfolio zeigt,
-            wie Strategie und Craft zusammenwirken.
+            PK-Studios ist ein unabhängiges Kreativstudio. Ich arbeite eng mit
+            Teams zusammen – von der ersten Positionierung bis zur Umsetzung im
+            Browser oder Print.
           </p>
           <p className="leading-relaxed text-muted-foreground">
-            Von Branding über Web bis Product Design: Ich begleite Projekte vom
-            Konzept bis zum Launch – transparent, iterativ und mit Blick fürs
-            Detail.
+            Keine Dark Patterns, keine aufgebauschten Versprechen: ehrliche
+            Briefings, nachvollziehbare Meilensteine und ein Fokus auf das, was
+            wirklich gebraucht wird.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
-          {aboutStats.map((stat) => (
-            <div
+        <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
+          {aboutStats.map((stat, index) => (
+            <Reveal
               key={stat.label}
-              className="rounded-2xl border border-border/60 bg-card/40 p-6"
+              delay={(Math.min(index, 2) + 1) as 1 | 2 | 3}
+              className="border-l-2 border-primary/40 bg-transparent py-2 pl-5"
             >
-              <p className="text-3xl font-semibold tracking-tight text-orange-200">
+              <p className="font-display text-4xl font-semibold tracking-tight text-primary">
                 {stat.value}
               </p>
-              <p className="mt-2 text-sm text-muted-foreground">{stat.label}</p>
-            </div>
+              <p className="mt-1 text-sm text-muted-foreground">{stat.label}</p>
+            </Reveal>
           ))}
         </div>
       </div>
