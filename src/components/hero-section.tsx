@@ -1,39 +1,34 @@
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
-import { Badge } from "@/components/ui/badge";
+import { HeroVisual } from "@/components/hero-visual";
 import { Button } from "@/components/ui/button";
+import { site } from "@/lib/site-data";
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden border-b border-border/60">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(251,146,60,0.12),transparent_55%)]" />
-      <div className="pointer-events-none absolute -right-24 top-20 size-72 rounded-full bg-orange-500/10 blur-3xl" />
-      <div className="pointer-events-none absolute -left-16 bottom-0 size-64 rounded-full bg-amber-400/10 blur-3xl" />
+    <section className="relative min-h-[min(92vh,880px)] overflow-hidden border-b border-border/70">
+      <HeroVisual />
 
-      <div className="relative mx-auto grid max-w-6xl gap-12 px-4 py-20 sm:px-6 lg:grid-cols-[1.2fr_0.8fr] lg:items-end lg:px-8 lg:py-28">
-        <div className="space-y-8">
-          <Badge variant="secondary" className="gap-1.5 px-3 py-1">
-            <Sparkles className="size-3.5" />
-            Portfolio · Design & Development
-          </Badge>
+      <div className="relative mx-auto flex min-h-[min(92vh,880px)] max-w-6xl flex-col justify-end px-4 pb-16 pt-28 sm:px-6 sm:pb-20 lg:px-8 lg:pb-24">
+        <div className="max-w-2xl space-y-7">
+          <p className="animate-fade-up font-display text-5xl font-semibold tracking-tight text-[var(--ink)] sm:text-6xl lg:text-7xl">
+            {site.name}
+          </p>
 
-          <div className="space-y-5">
-            <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-balance sm:text-5xl lg:text-6xl">
-              Design, das{" "}
-              <span className="bg-gradient-to-r from-orange-300 via-amber-200 to-orange-400 bg-clip-text text-transparent">
-                Projekte erzählt
-              </span>
-              .
-            </h1>
-            <p className="max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              PK-Studios ist mein kreatives Portfolio für Branding, digitale
-              Produkte und visuelle Kommunikation – kuratiert, durchdacht und
-              ready to ship.
-            </p>
-          </div>
+          <h1 className="animate-fade-up-delay-1 max-w-xl text-2xl font-medium leading-snug tracking-tight text-balance text-foreground/90 sm:text-3xl">
+            Marken und digitale Produkte mit klarer Haltung.
+          </h1>
 
-          <div className="flex flex-col gap-3 sm:flex-row">
-            <Button render={<a href="#portfolio" />} size="lg" className="h-11 px-5">
+          <p className="animate-fade-up-delay-2 max-w-md text-base leading-relaxed text-muted-foreground sm:text-lg">
+            {site.description}
+          </p>
+
+          <div className="animate-fade-up-delay-3 flex flex-col gap-3 sm:flex-row">
+            <Button
+              render={<a href="#portfolio" />}
+              size="lg"
+              className="h-12 px-6 text-base"
+            >
               Portfolio ansehen
               <ArrowRight />
             </Button>
@@ -41,29 +36,11 @@ export function HeroSection() {
               render={<a href="#kontakt" />}
               variant="outline"
               size="lg"
-              className="h-11 px-5"
+              className="h-12 border-foreground/15 bg-background/50 px-6 text-base backdrop-blur-sm"
             >
-              Kontakt
+              Projekt anfragen
             </Button>
           </div>
-        </div>
-
-        <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
-          {[
-            { label: "Schwerpunkt", value: "Brand & Web" },
-            { label: "Projekte", value: "40+ Cases" },
-            { label: "Verfügbar", value: "Für neue Aufträge" },
-          ].map((item) => (
-            <div
-              key={item.label}
-              className="rounded-2xl border border-border/60 bg-card/50 p-5 backdrop-blur-sm"
-            >
-              <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                {item.label}
-              </p>
-              <p className="mt-2 text-lg font-medium">{item.value}</p>
-            </div>
-          ))}
         </div>
       </div>
     </section>

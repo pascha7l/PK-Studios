@@ -1,27 +1,34 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Manrope, Syne } from "next/font/google";
+
+import { CookieConsent } from "@/components/cookie-consent";
+import { site } from "@/lib/site-data";
 
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const syne = Syne({
+  variable: "--font-display",
   subsets: ["latin"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const manrope = Manrope({
+  variable: "--font-body",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "PK-Studios | Portfolio für Design & Development",
-  description:
-    "Portfolio von PK-Studios – ausgewählte Arbeiten in Branding, Web, Product und Editorial Design.",
+  title: {
+    default: `${site.name} | Design & Development`,
+    template: `%s | ${site.name}`,
+  },
+  description: site.description,
   openGraph: {
-    title: "PK-Studios",
-    description:
-      "Kreativstudio für Brand Design, Webentwicklung und visuelle Kommunikation.",
+    title: site.name,
+    description: site.description,
     type: "website",
+    locale: "de_DE",
   },
 };
 
@@ -29,9 +36,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="de"
-      className={`${geistSans.variable} ${geistMono.variable} dark h-full antialiased`}
+      className={`${syne.variable} ${manrope.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <a href="#main-content" className="skip-link">
+          Zum Inhalt springen
+        </a>
+        {children}
+        <CookieConsent />
+      </body>
     </html>
   );
 }
