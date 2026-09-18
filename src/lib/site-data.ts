@@ -62,6 +62,7 @@ export type Project = {
   deliverables: readonly string[];
   tags: readonly string[];
   accent: string;
+  accentDeep: string;
   imageAlt: string;
 };
 
@@ -81,7 +82,8 @@ export const projects: readonly Project[] = [
       "Wir entwickelten eine reduzierte Identität mit typografischer Klarheit, warmen Farbtönen und einem schlanken Shop-Erlebnis.",
     deliverables: ["Logo & Brand System", "Packaging", "E-Commerce UI", "Styleguide"],
     tags: ["Branding", "E-Commerce", "UI Design"],
-    accent: "var(--project-lumen)",
+    accent: "#d4a15c",
+    accentDeep: "#3d2a14",
     imageAlt:
       "Abstrakte Markendarstellung für Lumen Coffee mit warmen Bernstein- und Kaffee-Tönen",
   },
@@ -100,7 +102,8 @@ export const projects: readonly Project[] = [
       "Ein modulares UI-System mit klarer Hierarchie, Fokus auf den nächsten Schritt und konsistenten Komponenten für alle Mobilitätsarten.",
     deliverables: ["UX Flows", "Design System", "App Screens", "Prototyp"],
     tags: ["UX", "Mobile", "Design System"],
-    accent: "var(--project-atlas)",
+    accent: "#6eb6d4",
+    accentDeep: "#163748",
     imageAlt:
       "Abstrakte Produktdarstellung für Atlas Mobility mit kühlen Cyan- und Himmelblau-Flächen",
   },
@@ -119,7 +122,8 @@ export const projects: readonly Project[] = [
       "Ein flexibles Raster mit großzügigem Weißraum, einer markanten Display-Schrift und klaren Kapitelrhythmen.",
     deliverables: ["Layout System", "Typografie", "Cover Serien", "Digital Edition"],
     tags: ["Editorial", "Print", "Typography"],
-    accent: "var(--project-form)",
+    accent: "#7a8f6a",
+    accentDeep: "#243024",
     imageAlt:
       "Abstrakte Editorial-Darstellung für Form & Field mit tiefen Oliv- und Schieferflächen",
   },
@@ -138,7 +142,8 @@ export const projects: readonly Project[] = [
       "Eine bildgetriebene One-Page mit lazy Loading, dezenten Scroll-Animationen und einem CMS-freundlichen Aufbau.",
     deliverables: ["Website", "Motion", "Responsive Layout", "Performance Setup"],
     tags: ["Web", "Portfolio", "Frontend"],
-    accent: "var(--project-northline)",
+    accent: "#3d9b84",
+    accentDeep: "#14352f",
     imageAlt:
       "Abstrakte Webdarstellung für Northline Studio mit Smaragd- und Teal-Flächen",
   },

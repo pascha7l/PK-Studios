@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import {
   projectCategories,
   projects,
+  type Project,
   type ProjectCategory,
 } from "@/lib/site-data";
 
@@ -59,68 +60,14 @@ export function PortfolioSection() {
           </div>
         </Reveal>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2">
+        <div className="mt-12 grid gap-7 sm:grid-cols-2">
           {filteredProjects.map((project, index) => (
             <Reveal
               key={project.slug}
               delay={(Math.min(index, 2) + 1) as 1 | 2 | 3}
               as="article"
             >
-              <Link
-                href={`/projekte/${project.slug}`}
-                className="group relative block overflow-hidden rounded-3xl outline-none transition-transform duration-500 hover:-translate-y-1 focus-visible:ring-2 focus-visible:ring-ring"
-              >
-                <div
-                  className="relative aspect-[4/3] overflow-hidden"
-                  style={{
-                    background: `linear-gradient(145deg, color-mix(in oklch, ${project.accent} 55%, white), color-mix(in oklch, ${project.accent} 25%, oklch(0.3 0.04 170)))`,
-                  }}
-                >
-                  <div
-                    className="absolute inset-0 opacity-40 transition-opacity duration-500 group-hover:opacity-60"
-                    style={{
-                      backgroundImage:
-                        "radial-gradient(circle at 30% 20%, white 0%, transparent 45%), radial-gradient(circle at 80% 80%, oklch(0.95 0.02 210 / 0.4), transparent 40%)",
-                    }}
-                  />
-                  <span className="sr-only">{project.imageAlt}</span>
-                  <img
-                    src={`data:image/svg+xml,${encodeURIComponent(projectPlaceholderSvg(project.title, project.accent))}`}
-                    alt={project.imageAlt}
-                    className="absolute inset-0 size-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105"
-                    width={800}
-                    height={600}
-                  />
-                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[oklch(0.18_0.03_170/0.75)] to-transparent p-6 pt-16 text-white">
-                    <div className="mb-3 flex flex-wrap gap-2">
-                      <Badge className="border-white/20 bg-white/15 text-white backdrop-blur-sm">
-                        {project.category}
-                      </Badge>
-                      <Badge
-                        variant="outline"
-                        className="border-white/30 bg-transparent text-white"
-                      >
-                        {project.year}
-                      </Badge>
-                    </div>
-                    <div className="flex items-start justify-between gap-3">
-                      <div>
-                        <h3 className="font-display text-2xl font-semibold tracking-tight">
-                          {project.title}
-                        </h3>
-                        <p className="mt-1 text-sm text-white/75">{project.role}</p>
-                      </div>
-                      <ArrowUpRight
-                        className="mt-1 size-5 shrink-0 text-white/80 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                        aria-hidden="true"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-                  {project.description}
-                </p>
-              </Link>
+              <ProjectCard project={project} />
             </Reveal>
           ))}
         </div>
@@ -135,17 +82,84 @@ export function PortfolioSection() {
   );
 }
 
-function projectPlaceholderSvg(title: string, accent: string) {
+function ProjectCard({ project }: { project: Project }) {
+  return (
+    <Link
+      href={`/projekte/${project.slug}`}
+      className="group block outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4"
+    >
+      <div className="relative overflow-hidden rounded-[1.75rem] border border-border/50 shadow-[0_24px_60px_-36px_rgba(20,53,47,0.45)] transition-transform duration-500 group-hover:-translate-y-1.5">
+        <div
+          className="relative aspect-[4/3] overflow-hidden"
+          style={{
+            background: `linear-gradient(145deg, ${project.accent} 0%, ${project.accentDeep} 100%)`,
+          }}
+        >
+          <div
+            className="absolute -right-10 -top-10 size-56 rounded-full opacity-40 blur-2xl transition-transform duration-700 group-hover:scale-125"
+            style={{ background: "rgba(255,255,255,0.45)" }}
+          />
+          <div
+            className="absolute bottom-10 left-8 size-40 rounded-[2rem] border border-white/25 bg-white/15 backdrop-blur-[2px] transition-transform duration-700 group-hover:translate-y-[-6px]"
+          />
+          <div
+            className="absolute right-10 top-14 size-24 rounded-full border border-white/30 bg-white/20 transition-transform duration-700 group-hover:translate-x-2"
+          />
+          <img
+            src={`data:image/svg+xml,${encodeURIComponent(projectArtSvg(project))}`}
+            alt={project.imageAlt}
+            className="absolute inset-0 size-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-[1.04]"
+            width={800}
+            height={600}
+          />
+          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/55 via-black/20 to-transparent p-6 pt-20 text-white">
+            <div className="mb-3 flex flex-wrap gap-2">
+              <Badge className="border-white/25 bg-white/15 text-white backdrop-blur-sm">
+                {project.category}
+              </Badge>
+              <Badge
+                variant="outline"
+                className="border-white/35 bg-transparent text-white"
+              >
+                {project.year}
+              </Badge>
+            </div>
+            <div className="flex items-start justify-between gap-3">
+              <div>
+                <h3 className="font-display text-2xl font-semibold tracking-tight">
+                  {project.title}
+                </h3>
+                <p className="mt-1 text-sm text-white/80">{project.role}</p>
+              </div>
+              <ArrowUpRight
+                className="mt-1 size-5 shrink-0 text-white/85 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                aria-hidden="true"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <p className="mt-4 px-1 text-sm leading-relaxed text-muted-foreground">
+        {project.description}
+      </p>
+    </Link>
+  );
+}
+
+function projectArtSvg(project: Project) {
   return `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
   <defs>
     <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="${accent}" stop-opacity="0.9"/>
-      <stop offset="100%" stop-color="#16352f" stop-opacity="0.85"/>
+      <stop offset="0%" stop-color="${project.accent}"/>
+      <stop offset="100%" stop-color="${project.accentDeep}"/>
     </linearGradient>
   </defs>
   <rect width="800" height="600" fill="url(#g)"/>
-  <circle cx="620" cy="160" r="110" fill="white" fill-opacity="0.12"/>
-  <rect x="80" y="360" width="280" height="160" rx="24" fill="white" fill-opacity="0.14"/>
-  <text x="80" y="120" fill="white" fill-opacity="0.9" font-family="Georgia, serif" font-size="36">${title}</text>
+  <circle cx="620" cy="150" r="120" fill="#ffffff" fill-opacity="0.18"/>
+  <circle cx="680" cy="210" r="54" fill="#ffffff" fill-opacity="0.12"/>
+  <rect x="70" y="340" width="300" height="170" rx="28" fill="#ffffff" fill-opacity="0.16"/>
+  <rect x="110" y="390" width="170" height="10" rx="5" fill="#ffffff" fill-opacity="0.45"/>
+  <rect x="110" y="420" width="220" height="8" rx="4" fill="#ffffff" fill-opacity="0.28"/>
+  <rect x="110" y="448" width="140" height="8" rx="4" fill="#ffffff" fill-opacity="0.2"/>
 </svg>`;
 }

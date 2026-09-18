@@ -62,7 +62,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           <div
             className="absolute inset-0"
             style={{
-              background: `linear-gradient(135deg, color-mix(in oklch, ${project.accent} 45%, white), color-mix(in oklch, ${project.accent} 20%, oklch(0.94 0.01 210)))`,
+              background: `linear-gradient(135deg, ${project.accent}66, ${project.accentDeep}22 55%, #eef2f4)`,
             }}
             aria-hidden="true"
           />
@@ -91,7 +91,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 </p>
                 <img
                   src={`data:image/svg+xml,${encodeURIComponent(
-                    `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="640" viewBox="0 0 1200 640"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="white" stop-opacity="0.35"/><stop offset="100%" stop-color="#0f2f2a" stop-opacity="0.25"/></linearGradient></defs><rect width="1200" height="640" rx="32" fill="url(#g)"/><circle cx="920" cy="180" r="140" fill="white" fill-opacity="0.2"/><rect x="120" y="360" width="420" height="160" rx="28" fill="white" fill-opacity="0.18"/></svg>`
+                    `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="640" viewBox="0 0 1200 640"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="${project.accent}"/><stop offset="100%" stop-color="${project.accentDeep}"/></linearGradient></defs><rect width="1200" height="640" rx="32" fill="url(#g)"/><circle cx="920" cy="180" r="140" fill="white" fill-opacity="0.18"/><rect x="120" y="360" width="420" height="160" rx="28" fill="white" fill-opacity="0.16"/><rect x="160" y="410" width="220" height="12" rx="6" fill="white" fill-opacity="0.4"/></svg>`
                   )}`}
                   alt={project.imageAlt}
                   className="mt-4 w-full rounded-3xl border border-border/40 object-cover shadow-sm"
